@@ -11,10 +11,12 @@ struct ChatView: View {
     
     @State private var textFieldText: String = ""
     
+    let vm: ChatViewModel = ChatViewModel()
+    
     var body: some View {
         VStack(spacing: 0) {
             // Message Area
-           messagageArea
+            messageArea
             
             // Navigation Area
             .overlay(navigationArea, alignment: .top)
@@ -25,13 +27,15 @@ struct ChatView: View {
     }
 }
 
-#Preview {
-    ChatView()
+struct ChatView_Previews: PreviewProvider {
+    static var previews: some View {
+        ChatView()
+    }
 }
 
 extension ChatView {
     
-    private var messagageArea: some View {
+    private var messageArea: some View {
         ScrollView {
             VStack(spacing: 0) {
                 ForEach(0..<15) { _ in
@@ -66,7 +70,6 @@ extension ChatView {
                 )
             Image(systemName: "mic")
                 .font(.title2)
-            
         }
         .padding()
         .background(.white)
@@ -88,6 +91,5 @@ extension ChatView {
         }
         .padding()
         .background(.cyan.opacity(0.9))
-        
     }
 }
