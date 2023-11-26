@@ -43,7 +43,7 @@ extension MessageRow {
     private var messageState: some View {
         VStack(alignment: .trailing) {
             Spacer()
-            Text("既読")
+            Text("Read")
             Text(formattedDataString)
         }
         .foregroundColor(.secondary)
