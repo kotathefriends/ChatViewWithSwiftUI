@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		787BDF8B2B161E9000E28C00 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787BDF8A2B161E9000E28C00 /* ListView.swift */; };
 		78C2844E2B12F145008BECA2 /* ChatViewWithSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C2844D2B12F145008BECA2 /* ChatViewWithSwiftUIApp.swift */; };
 		78C284522B12F147008BECA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78C284512B12F147008BECA2 /* Assets.xcassets */; };
 		78C284552B12F147008BECA2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78C284542B12F147008BECA2 /* Preview Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		787BDF8A2B161E9000E28C00 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		78C2844A2B12F145008BECA2 /* ChatViewWithSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatViewWithSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C2844D2B12F145008BECA2 /* ChatViewWithSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewWithSwiftUIApp.swift; sourceTree = "<group>"; };
 		78C284512B12F147008BECA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			children = (
 				78C2845B2B12F26A008BECA2 /* ChatView.swift */,
 				78C2845D2B13104B008BECA2 /* MessageRow.swift */,
+				787BDF8A2B161E9000E28C00 /* ListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				787BDF8B2B161E9000E28C00 /* ListView.swift in Sources */,
 				78C284622B131F5B008BECA2 /* User.swift in Sources */,
 				78C2846E2B132F6D008BECA2 /* ChatViewModel.swift in Sources */,
 				78C284682B1323F4008BECA2 /* Chat.swift in Sources */,
