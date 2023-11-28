@@ -10,7 +10,7 @@ import SwiftUI
 struct ChatView: View {
     
     @State private var textFieldText: String = ""
-    @FocusState private var textFieldFoucused: Bool
+    @FocusState private var textFieldFocused: Bool
     
     @ObservedObject var vm: ChatViewModel = ChatViewModel()
     
@@ -37,18 +37,23 @@ struct ChatView_Previews: PreviewProvider {
 extension ChatView {
     
     private var messageArea: some View {
-        ScrollView {
-            VStack(spacing: 0) {
-                ForEach(vm.messages) { message in
-                    MessageRow(message: message)
+        ScrollViewReader { proxy in
+            ScrollView {
+                VStack(spacing: 0) {
+                    ForEach(vm.messages) { message in
+                        MessageRow(message: message)
+                    }
                 }
+                .padding(.horizontal)
+                .padding(.top, 72)
             }
-            .padding(.horizontal)
-            .padding(.top, 72)
-        }
-        .background(Color("Background"))
-        .onTapGesture {
-            textFieldFoucused = false
+            .background(Color("Background"))
+            .onTapGesture {
+                textFieldFocused = false
+            }
+            .onAppear {
+                scrollToLast(proxy: proxy)
+            }
         }
     }
     
@@ -75,7 +80,7 @@ extension ChatView {
                 .onSubmit {
                     sendMessage()
                 }
-                .focused($textFieldFoucused)
+                .focused($textFieldFocused)
             Image(systemName: "mic")
                 .font(.title2)
         }
@@ -106,6 +111,12 @@ extension ChatView {
         if !textFieldText.isEmpty {
             vm.addMessage(text: textFieldText)
             textFieldText = ""
+        }
+    }
+    
+    private func scrollToLast(proxy: ScrollViewProxy) {
+        if let lastMessage = vm.messages.last {
+            proxy.scrollTo(lastMessage.id, anchor: .bottom)
         }
     }
 }
