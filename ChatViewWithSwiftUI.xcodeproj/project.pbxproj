@@ -87,9 +87,9 @@
 		78C2845F2B131062008BECA2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				787BDF8A2B161E9000E28C00 /* ListView.swift */,
 				78C2845B2B12F26A008BECA2 /* ChatView.swift */,
 				78C2845D2B13104B008BECA2 /* MessageRow.swift */,
-				787BDF8A2B161E9000E28C00 /* ListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
