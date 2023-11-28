@@ -11,7 +11,7 @@ struct ChatView: View {
     
     @State private var textFieldText: String = ""
     
-    let vm: ChatViewModel = ChatViewModel()
+    @ObservedObject var vm: ChatViewModel = ChatViewModel()
     
     var body: some View {
         VStack(spacing: 0) {
@@ -68,6 +68,10 @@ extension ChatView {
                     
                     , alignment: .trailing
                 )
+                .onSubmit {
+                    sendMessage()
+                }
+            
             Image(systemName: "mic")
                 .font(.title2)
         }
@@ -92,5 +96,9 @@ extension ChatView {
         }
         .padding()
         .background(Color("Background").opacity(0.9))
+    }
+    
+    private func sendMessage() {
+        vm.addMessage(text: textFieldText)
     }
 }
