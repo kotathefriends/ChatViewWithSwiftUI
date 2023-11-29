@@ -82,7 +82,7 @@ extension ListView {
                     .foregroundColor(Color(.secondaryLabel))
             }
             Spacer()
-            Text("12/31")
+            Text(chat.recentMessageDateStirng)
                 .font(.caption)
                 .foregroundColor(Color(.secondaryLabel))
         }
