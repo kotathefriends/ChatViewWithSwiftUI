@@ -59,6 +59,21 @@ class ChatViewModel: ObservableObject {
     
     func getTitle(messages: [Message]) -> String {
         var title = ""
+        let names = getMembers(messages: messages, type: .name)
+        
+        for name in names {
+            title += title.isEmpty ? "\(name)" : ", \(name)"
+        }
+                
+        return title
+    }
+    
+    func getImages(messages: [Message]) -> [String] { getMembers(messages: messages, type: .image)
+                
+    }
+    
+    private func getMembers(messages: [Message], type: ValueType) -> [String] {
+        var members: [String] = []
         var userIds: [String] = []
         
         for message in messages {
@@ -69,11 +84,19 @@ class ChatViewModel: ObservableObject {
             
             userIds.append(id)
             
-            let name = message.user.name
-            title += title.isEmpty ? "\(name)" : ", \(name)"
+            switch type {
+            case .name:
+                members.append(message.user.name)
+            case .image:
+                members.append(message.user.image)
+            }
         }
-                
-        return title
         
+        return members
     }
+}
+
+enum ValueType {
+    case name
+    case image
 }
