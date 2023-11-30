@@ -11,8 +11,7 @@ import SwiftUI
 
 struct ListView: View {
     
-    @ObservedObject var vm: ChatViewModel =
-        ChatViewModel()
+    @ObservedObject var vm: ChatViewModel = ChatViewModel()
     
     var body: some View {
         NavigationView {
@@ -57,6 +56,7 @@ extension ListView {
                 ForEach(vm.chatData) { chat in
                     NavigationLink {
                        ChatView(chat: chat)
+                            .environmentObject(vm)
                             .toolbar(.hidden)
                     } label: {
                         listRow(chat: chat)
